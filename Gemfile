@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
+<<<<<<< HEAD
 
 gemspec
+=======
+# gemspec
+gem "jekyll-theme-chirpy"
+
+>>>>>>> parent of 6d1308d (test)
 
 group :test do
   gem "html-proofer", "~> 3.18"
