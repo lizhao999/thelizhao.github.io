@@ -1,66 +1,39 @@
 ---
-layout: default
+layout: null
 ---
 
-{% include lang.html %}
+<html>
+  <head>
+      
+  {% include head.html %}
 
-{% include assets-origin.html %}
+  {% if site.google-analytics %}
+  {% include google-analytics.html %}
+  {% endif %}
 
-<div class="row">
+  {% if page.url == "/404.html" %}
+  <meta http-equiv="refresh" content="10; url={{ site.baseurl }}">
+  {% endif %}
 
-  <!-- core -->
-  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-8">
-    <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+  </head>
+  
+  {% include header.html %}
 
-    {% capture _content %}
-      {% if layout.refactor or page.layout == 'page' %}
-        {% include refactor-content.html content=content %}
-      {% else %}
-        {{ content }}
-      {% endif %}
-    {% endcapture %}
+<header class="post-header">
+	<center><div class="contact-title">{{ page.title }}</div>
+		<div class="contact-subtitle"><p>{{ page.subtitle }}</p></div></center>
+</header>
 
-    {% if page.layout == 'page' or page.collection == 'tabs'%}
-      {% assign title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
-      <h1 class="dynamic-title">
-        {{ title }}
-      </h1>
-      <div class="post-content">
-        {{ _content }}
-      </div>
-    {% else %}
-      {{ _content }}
-    {% endif %}
-
-    </div>
-  </div> <!-- #core-wrapper -->
-
-  <!-- pannel -->
-  <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted">
-
-    <div class="access">
-      {% include update-list.html %}
-      {% include trending-tags.html %}
-    </div>
-
-    {% for _include in layout.pannel_includes %}
-      {% assign _include_path = _include | append: '.html' %}
-      {% include {{ _include_path }} %}
-    {% endfor %}
-  </div>
-
+<div class="wrapper">
+	<div class="post-content">
+		{{ content }}
+	</div>
 </div>
 
-<!-- tail -->
-{% if layout.tail_includes %}
-<div class="row">
-  <div class="col-12 col-lg-11 col-xl-8">
-    <div id="tail-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
-      {% for _include in layout.tail_includes %}
-        {% assign _include_path = _include | append: '.html' %}
-        {% include {{ _include_path }} %}
-      {% endfor %}
-    </div>
-  </div>
-</div> <!-- .row -->
-{% endif %}
+<footer>
+
+{% include foot.html %}
+{% include footer.html %}
+
+</footer>
+</html>

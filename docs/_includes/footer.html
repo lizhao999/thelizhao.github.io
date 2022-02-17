@@ -1,37 +1,30 @@
-<!--
-  The Footer
--->
+<footer class="site-footer">
 
-<footer class="d-flex w-100 justify-content-center">
-  <div class="d-flex justify-content-between align-items-center text-muted">
-    <div class="footer-left">
-      <p class="mb-0">
-        © {{ 'now' | date: "%Y" }}
-        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
-        {% if site.data.locales[lang].copyright.brief %}
-        <span data-toggle="tooltip" data-placement="top"
-          title="{{ site.data.locales[lang].copyright.verbose }}">{{ site.data.locales[lang].copyright.brief }}</span>
-        {% endif %}
-      </p>
-    </div>
+  <div class="wrapper">
 
-    <div class="footer-right">
-      <p class="mb-0">
-        {% capture _platform %}
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-        {% endcapture %}
+    <center>
+        
+		<p><a class="link" href="{{ site.baseurl }}/archive/">Archive</a> /
+		<a class="link" href="{{ site.baseurl }}/category/">Category</a> / 
+		<a class="link" href="{{ site.baseurl }}/tags/">Tags</a> / 
+		<a class="link" href="{{ site.baseurl }}/about/">About</a> /
+		<a class="link" href="{{ site.baseurl }}/contact/">Contact</a>
+        </p>
 
-        {% capture _theme %}
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-        {% endcapture %}
+        <span><script>document.write(new Date().getFullYear());</script></span>
+        <span>&copy;</span>
+        
+		<a class="link" href="{{ site.baseurl }}">{{ site.name }}</a>
+		<br>
+		<span>Theme &copy; <a class="link" href="https://gabriel-chen.github.io" target="_blank"> Gabriel</a> | </span>
+				<iframe
+			style="margin-left: 2px; margin-bottom:-5px;"
+			frameborder="0" scrolling="0" width="91px" height="20px"
+			src="https://ghbtns.com/github-btn.html?user=itisbenjamin&repo=Nice_Blog&type=star&count=true" >
+		</iframe>
 
-        {{ site.data.locales[lang].meta
-          | default: 'Powered by :PLATFORM with :THEME theme.'
-          | replace: ':PLATFORM', _platform | replace: ':THEME', _theme
-        }}
+    </center>
+    
+  </div>
 
-      </p>
-    </div>
-
-  </div> <!-- div.d-flex -->
 </footer>
