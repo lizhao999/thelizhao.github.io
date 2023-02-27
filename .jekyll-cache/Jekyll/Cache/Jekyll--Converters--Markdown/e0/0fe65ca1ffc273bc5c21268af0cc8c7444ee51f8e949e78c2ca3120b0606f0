@@ -1,2 +1,0 @@
-I"<p>每个软件皆有不同之功能需求，之前项目中有遇到同一Controller中使用多个NSURLConnection，遇到问题发现返回代理中无法判断是哪一个请求的返回数据，而NSURLConnection又无tag值属性。此时如何应对呢？</p>
-:ET
